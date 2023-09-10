@@ -33,7 +33,6 @@ namespace App.Scripts.Scenes.SceneWordSearch.Features.Level.BuilderLevelModel
 
             return ConvertToList(lettersDictionary);
             //return tableOfLetter.ToList();
-            throw new NotImplementedException();
         }
 
         // private void TakeWordApart(HashSet<char> table, string word)
