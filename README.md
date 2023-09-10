@@ -1,0 +1,2 @@
+# TestTaskOpenMyGame
+Test task
