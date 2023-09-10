@@ -7,6 +7,7 @@ namespace App.Scripts.Scenes.SceneWordSearch.Features.Level.BuilderLevelModel.Pr
     {
         public LevelInfo LoadLevelData(int levelIndex)
         {
+            
             //напиши реализацию не меняя сигнатуру функции
             throw new NotImplementedException();
         }
