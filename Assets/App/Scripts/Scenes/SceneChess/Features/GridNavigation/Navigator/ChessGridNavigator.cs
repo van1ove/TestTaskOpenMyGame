@@ -11,7 +11,13 @@ namespace App.Scripts.Scenes.SceneChess.Features.GridNavigation.Navigator
         public List<Vector2Int> FindPath(ChessUnitType unit, Vector2Int from, Vector2Int to, ChessGrid grid)
         {
             //напиши реализацию не меняя сигнатуру функции
-            throw new NotImplementedException();
+            List<Vector2Int> points = new List<Vector2Int>();
+
+            
+            
+            return points;
         }
+        
+        
     }
 }
