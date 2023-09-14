@@ -15,6 +15,12 @@ namespace App.Scripts.Scenes.SceneFillwords.Features.ProviderLevel
             GridFillWords model = null;
             try
             {
+                if (!LevelSaver.TryInit(index))
+                {
+                    if (LevelSaver.IsStartLevel(index) && !LevelSaver.AnyLevelWasLoaded)
+                        throw new Exception("Can't load any level");
+                }
+                
                 string coordinatesPath = "Assets/App/Resources/FillWords/pack_0.txt";
                 Dictionary<int, int[]> letterPoints = ParseCoordinates(index, coordinatesPath);
 
@@ -23,6 +29,8 @@ namespace App.Scripts.Scenes.SceneFillwords.Features.ProviderLevel
                 string wordsPath = "Assets/App/Resources/FillWords/words_list.txt";
                 model = FillTiles(model, letterPoints, wordsPath, (int)totalTileAmount);
 
+                LevelSaver.AnyLevelWasLoaded = true;
+                
                 return model;
             }
             catch (ArgumentException e)
@@ -43,8 +51,15 @@ namespace App.Scripts.Scenes.SceneFillwords.Features.ProviderLevel
             }
             catch (Exception e)
             {
+                Debug.Log(e.Message);
+
+                // This code is for case, if something might be return anyway
                 
+                // GridFillWords emptyModel = new GridFillWords(new Vector2Int(1, 1));
+                // nullModel.Set(0, 0, new CharGridModel('-'));
+                // return nullModel;
             }
+
             return model;
         }
 
