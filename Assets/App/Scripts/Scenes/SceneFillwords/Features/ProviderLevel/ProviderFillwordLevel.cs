@@ -53,11 +53,11 @@ namespace App.Scripts.Scenes.SceneFillwords.Features.ProviderLevel
             {
                 Debug.Log(e.Message);
 
-                // This code is for case, if something might be return anyway
+                // This code is for case, if something might be return anyway for game keep working
                 
-                // GridFillWords emptyModel = new GridFillWords(new Vector2Int(1, 1));
-                // nullModel.Set(0, 0, new CharGridModel('-'));
-                // return nullModel;
+                GridFillWords emptyModel = new GridFillWords(new Vector2Int(1, 1));
+                emptyModel.Set(0, 0, new CharGridModel('-'));
+                return emptyModel;
             }
 
             return model;
