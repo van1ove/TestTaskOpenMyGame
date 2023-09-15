@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using App.Scripts.Scenes.SceneChess.Features.ChessField.GridMatrix;
 using App.Scripts.Scenes.SceneChess.Features.ChessField.Types;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace App.Scripts.Scenes.SceneChess.Features.GridNavigation.Navigator
