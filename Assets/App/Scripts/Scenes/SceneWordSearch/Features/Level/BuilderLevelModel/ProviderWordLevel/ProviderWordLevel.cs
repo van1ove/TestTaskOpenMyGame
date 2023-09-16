@@ -1,10 +1,7 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
 using App.Scripts.Scenes.SceneWordSearch.Features.Level.Models.Level;
 using UnityEngine;
-using UnityEngine.WSA;
-using Application = UnityEngine.Application;
 
 namespace App.Scripts.Scenes.SceneWordSearch.Features.Level.BuilderLevelModel.ProviderWordLevel
 {
@@ -16,12 +13,9 @@ namespace App.Scripts.Scenes.SceneWordSearch.Features.Level.BuilderLevelModel.Pr
             LevelInfo levelInfo = new LevelInfo();
             try
             {
-                string name = levelIndex + ".json";
-                using StreamReader reader = new StreamReader("Assets/App/Resources/WordSearch/Levels/" + name);
-                string json = reader.ReadToEnd();
+                TextAsset asset = Resources.Load<TextAsset>("WordSearch/Levels/" + levelIndex);
+                levelInfo = JsonUtility.FromJson<LevelInfo>(asset.text);
                 
-                levelInfo = JsonUtility.FromJson<LevelInfo>(json);
-
                 if (levelInfo.words.Count == 0)
                     throw new ArgumentException("Level Info is empty");
             }
